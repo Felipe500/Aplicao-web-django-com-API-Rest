@@ -1,0 +1,37 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="card card-body">
+			
+			
+			<h3 style="text-align: center">Configurações da conta</h3>
+			<hr>
+			
+            {% if dados.img %}  
+			<img class="profile-pic" src="{{dados.img.url}}" >
+			{% else %}
+			<img class="profile-pic" src="" >
+			{%endif%}
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="card card-body">
+			
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+				{{form.media}}
+				
+				
+		
+			<input class="btn btn-primary" type="submit" name="Update Information" value="Salvar">
+            <a class="btn btn-warning" href="{% url 'home' %}">Cancelar</a>
+			</form>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

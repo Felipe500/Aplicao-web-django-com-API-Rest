@@ -1,0 +1,108 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+
+
+
+{% csrf_token %}
+<br>
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+		<h4 class="card-title">TOTAL DE OBRAS CADASTRADAS &nbsp;{{total_obras}}</h4>
+		</div>
+		
+	</div>
+	</div>
+
+<br>
+<div class="row">
+	<div class="col-sm">
+		<div class="card card-body">
+			<form class="form-group" method="get">
+					
+        
+      
+				 {{myFilter.form.titulo.label}} {{myFilter.form.titulo}}
+				 {{myFilter.form.start_date.label}} : <input type="date" value={{myFilter.form.start_date}}> 
+				 {{myFilter.form.end_date.name}} : <input type="date" value={{myFilter.form.end_date}}	>
+
+		    	<button class="btn btn-primary" type="submit">Pesquisar</button>
+		    
+
+			
+		  </form>
+
+
+		</div>
+
+	
+	</div>
+	
+</div>
+<br>
+<div class="row">
+	<div class="col-md">
+		
+		<div class="card card-body">
+			
+		<h5 class="card-title">RESULTADO DA PESQUISA &nbsp;{{pesquisa_resul}}</h5>
+		
+		  <form class="form" method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				
+			<input style="font-size:17px;font-weight: bold;" class="btn btn-primary" type="submit" name="filtrar" value="---> Exportar dados para .CSV <---">
+			
+			</form>
+			
+		
+		</div>
+
+
+	</div>
+	</div>
+	
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>titulo</th>
+					<td>Descrição</td>
+					<th>editora</th>
+					<th>Data de inserção</th>
+				
+
+				
+				</tr>
+
+				
+
+				{% for obra_x in obras %}
+
+				<tr>
+
+					<td>{{obra_x.titulo}}</td>
+					<td>{{obra_x.descricao}}</td>
+					
+					<td>{{obra_x.editora}}</td>
+					<td>{{obra_x.date_created}}</td>
+					
+				
+				</tr>
+				{% endfor %}
+
+				
+
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endblock %}
+

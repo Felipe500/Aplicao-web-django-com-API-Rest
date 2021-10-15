@@ -1,0 +1,50 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Produtos</h5>
+				</div>
+
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Titulo</th>
+							
+							<th>Editora</th>
+							<th>Data de inserção</th>
+							<th>Ver Detalhes</th>
+							<th>Excluir Obra</th>
+						</tr>
+
+						
+						{% for i in list_obras %}
+							<tr>
+								<td><a class="btn btn-sm btn-info" href="{% url 'atualizar_obra'  i.id %}">{{i.titulo}}</a></td>
+								
+								<td>{{i.editora}}</td>
+								<td>{{i.date_created}}</td>
+								<td><a class="btn btn-sm btn-info" href="{% url 'atualizar_obra'  i.id %}">Detalhes</a></td>
+								<td><a class="btn btn-sm btn-danger" href="{% url 'remover_obra'  i.id %}">Excluir</a></td>
+								
+							
+							</tr>
+						{% endfor %}
+
+						
+						
+						
+						
+					</table>
+					
+				</div>
+			
+			</div>
+			
+		</div>
+
+{% endblock content %}

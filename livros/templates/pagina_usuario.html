@@ -1,0 +1,57 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+{% include 'status.html' %}
+
+
+{% csrf_token %}
+<br>
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>titulo</th>
+					<th>editora</th>
+					<th>Data de inserção</th>
+					<th>Atualizar</th>
+					<th>Deletar</th>
+
+				
+				</tr>
+
+				
+
+				{% for obra_x in obras %}
+
+				<tr>
+
+					<td>{{obra_x.titulo}}</td>
+					
+					
+					<td>{{obra_x.editora}}</td>
+					<td>{{obra_x.date_created}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'atualizar_obra'  obra_x.id %}">Atualizar</a></td>
+
+					<td><a class="btn btn-sm btn-danger" href="{% url 'remover_obra'  obra_x.id %}">Excluir</a></td>
+				
+				</tr>
+				{% endfor %}
+
+				
+
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
