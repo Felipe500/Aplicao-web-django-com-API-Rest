@@ -1,6 +1,4 @@
-# API-Pontos-turisticos-django
-Contém uma aplicação web (django-python), focada na API RESTFULL. 
+# Aplicao-web-django-com-API-Rest 
 
-Feito para explanar mais o django-rest-framework 
 
-Tem como objetivo retornar informações sobre os pontos turisticos, no formato json para qualquer aplicação que esteja logada na mesma possa acessar as informações.
+Desenvolvendo uma aplicação web com um back end que possa se comunicar com outras aplicações, atravéis de uma API desenvolvida com django rest framework
